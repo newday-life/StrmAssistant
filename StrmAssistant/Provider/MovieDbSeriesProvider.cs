@@ -18,6 +18,11 @@ namespace StrmAssistant.Provider
         public async Task<RemoteSearchResult[]> GetAllEpisodes(SeriesInfo seriesInfo,
             CancellationToken cancellationToken)
         {
+            if (!Plugin.Instance.ExperienceEnhanceStore.GetOptions().UIFunctionOptions.EnhanceMissingEpisodes)
+            {
+                return Array.Empty<RemoteSearchResult>();
+            }
+
             var tmdbId = seriesInfo.GetProviderId(MetadataProviders.Tmdb);
             var language = seriesInfo.MetadataLanguage;
 
