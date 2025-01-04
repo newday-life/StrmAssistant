@@ -10,7 +10,6 @@ using System;
 using System.Collections.Generic;
 using System.Reflection;
 using System.Threading;
-using System.Threading.Tasks;
 using static StrmAssistant.Mod.PatchManager;
 using static StrmAssistant.Options.MediaInfoExtractOptions;
 using static StrmAssistant.Options.Utility;
@@ -417,11 +416,9 @@ namespace StrmAssistant.Mod
                 return false;
             }
 
-            if (item.IsShortcut &&
-                item.HasImage(ImageType.Primary) &&
-                (provider is ILocalImageProvider || provider is IRemoteImageProvider) &&
+            if (item.HasImage(ImageType.Primary) && provider is IRemoteImageProvider &&
                 (IsExclusiveFeatureSelected(ExclusiveControl.CatchAllBlock) ||
-                 !IsExclusiveFeatureSelected(ExclusiveControl.CatchAllAllow) &&
+                 !IsExclusiveFeatureSelected(ExclusiveControl.CatchAllAllow) && item.IsShortcut &&
                  refreshOptions is MetadataRefreshOptions && !refreshOptions.ReplaceAllImages))
             {
                 __result = false;
