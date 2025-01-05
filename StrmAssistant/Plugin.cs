@@ -35,7 +35,6 @@ using System.Globalization;
 using System.IO;
 using System.Reflection;
 using System.Threading;
-using System.Threading.Tasks;
 using static StrmAssistant.Options.GeneralOptions;
 using static StrmAssistant.Options.Utility;
 
@@ -116,7 +115,12 @@ namespace StrmAssistant
                 UpdateCatchupScope(MainOptionsStore.GetOptions().GeneralOptions.CatchupTaskScope);
                 QueueManager.Initialize();
             }
-            if (IntroSkipStore.GetOptions().EnableIntroSkip) PlaySessionMonitor.Initialize();
+
+            if (IntroSkipStore.GetOptions().EnableIntroSkip)
+            {
+                UpdateIntroSkipPreferences(IntroSkipStore.GetOptions().IntroSkipPreferences);
+                PlaySessionMonitor.Initialize();
+            }
 
             _libraryManager.ItemAdded += OnItemAdded;
             _libraryManager.ItemUpdated += OnItemUpdated;

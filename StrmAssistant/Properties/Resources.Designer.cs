@@ -252,7 +252,7 @@ namespace StrmAssistant.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Auto merge multiple versions stored in the same folder. Default is OFF..
+        ///   Looks up a localized string similar to Auto merge multiple versions in the same folder while library scan. Default is OFF..
         /// </summary>
         public static string GeneralOptions_MergeMultiVersion_Auto_merge_multiple_versions_if_in_the_same_folder_ {
             get {
@@ -295,6 +295,15 @@ namespace StrmAssistant.Properties {
         public static string IntroDetectionEnhancedNotEnabled {
             get {
                 return ResourceManager.GetString("IntroDetectionEnhancedNotEnabled", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ResetAndOverwrite.
+        /// </summary>
+        public static string IntroSkipControl_ResetAndOverwrite_ResetAndOverwrite {
+            get {
+                return ResourceManager.GetString("IntroSkipControl_ResetAndOverwrite_ResetAndOverwrite", resourceCulture);
             }
         }
         
@@ -352,6 +361,15 @@ namespace StrmAssistant.Properties {
             get {
                 return ResourceManager.GetString("IntroSkipOptions_IntroDetectionFingerprintMinutes_It_must_be_between_2_and_20__De" +
                         "fault_is_10_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to IntroSkip Preferences.
+        /// </summary>
+        public static string IntroSkipOptions_IntroSkipPreferences_IntroSkip_Preferences {
+            get {
+                return ResourceManager.GetString("IntroSkipOptions_IntroSkipPreferences_IntroSkip_Preferences", resourceCulture);
             }
         }
         
@@ -417,6 +435,25 @@ namespace StrmAssistant.Properties {
         public static string IntroSkipOptions_MinOpeningPlotDurationSeconds {
             get {
                 return ResourceManager.GetString("IntroSkipOptions_MinOpeningPlotDurationSeconds", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enable overwriting following intro markers during reset. Default is OFF..
+        /// </summary>
+        public static string IntroSkipOptions_OverwriteIntroMarkers_Enables_overwriting_following_intro_markers_during_reset__Default_is_OFF_ {
+            get {
+                return ResourceManager.GetString("IntroSkipOptions_OverwriteIntroMarkers_Enables_overwriting_following_intro_marker" +
+                        "s_during_reset__Default_is_OFF_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Allow Reset to Overwrite.
+        /// </summary>
+        public static string IntroSkipOptions_OverwriteIntroMarkers_Overwrite_Following_Intro_Markers {
+            get {
+                return ResourceManager.GetString("IntroSkipOptions_OverwriteIntroMarkers_Overwrite_Following_Intro_Markers", resourceCulture);
             }
         }
         
@@ -1478,7 +1515,7 @@ namespace StrmAssistant.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Prevent automatic boxset library creation. Default is OFF..
+        ///   Looks up a localized string similar to Prevent automatic boxset library creation, used along with removal. Default is OFF..
         /// </summary>
         public static string UIFunctionOptions_NoBoxsetsAutoCreation_Prevent_automatic_boxset_library_creation__Default_is_OFF_ {
             get {

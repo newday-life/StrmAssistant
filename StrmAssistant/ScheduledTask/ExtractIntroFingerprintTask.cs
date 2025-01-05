@@ -172,7 +172,7 @@ namespace StrmAssistant.ScheduledTask
                     if (seasonSkip)
                     {
                         Interlocked.Increment(ref seasonSkipCount);
-                        _logger.Info("Fingerprint - Season Skipped: " + taskSeason.Name + " - " + taskSeason.Path);
+                        _logger.Info("IntroFingerprintExtract - Season Skipped: " + taskSeason.Name + " - " + taskSeason.Path);
                         break;
                     }
                 }

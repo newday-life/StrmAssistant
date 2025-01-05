@@ -9,6 +9,7 @@ using StrmAssistant.Options.UIBaseClasses.Store;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using static StrmAssistant.Options.Utility;
 
 namespace StrmAssistant.Options.Store
 {
@@ -110,6 +111,12 @@ namespace StrmAssistant.Options.Store
                     }
                 }
 
+                if (changedProperties.Contains(nameof(IntroSkipOptions.EnableIntroSkip)) ||
+                    changedProperties.Contains(nameof(IntroSkipOptions.IntroSkipPreferences)))
+                {
+                    if (options.EnableIntroSkip) UpdateIntroSkipPreferences(options.IntroSkipPreferences);
+                }
+
                 if (changedProperties.Contains(nameof(IntroSkipOptions.LibraryScope)) ||
                     changedProperties.Contains(nameof(IntroSkipOptions.EnableIntroSkip)))
                 {
@@ -203,6 +210,10 @@ namespace StrmAssistant.Options.Store
                     string.IsNullOrEmpty(introSkipUserScope) ? "ALL" : introSkipUserScope);
 
                 _logger.Info("IntroSkip - ClientScope is set to {0}", options.ClientScope);
+
+                var introSkipPreferences = GetSelectedIntroSkipPreferenceDescription();
+                _logger.Info("IntroSkip - Preferences is set to {0}",
+                    string.IsNullOrEmpty(introSkipPreferences) ? "EMPTY" : introSkipPreferences);
             }
         }
     }
