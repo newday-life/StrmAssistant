@@ -6,6 +6,7 @@ using StrmAssistant.Options.UIBaseClasses.Store;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using static StrmAssistant.Options.MediaInfoExtractOptions;
 using static StrmAssistant.Options.Utility;
 
 namespace StrmAssistant.Options.Store
@@ -37,8 +38,8 @@ namespace StrmAssistant.Options.Store
 
                 var controlFeatures = options.ExclusiveControlFeatures;
                 var selectedFeatures = controlFeatures.Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries)
-                    .Where(f => !(f == MediaInfoExtractOptions.ExclusiveControl.CatchAllAllow.ToString() &&
-                                  controlFeatures.Contains(MediaInfoExtractOptions.ExclusiveControl.CatchAllBlock.ToString())))
+                    .Where(f => !(f == ExclusiveControl.CatchAllAllow.ToString() &&
+                                  controlFeatures.Contains(ExclusiveControl.CatchAllBlock.ToString())))
                     .ToList();
                 options.ExclusiveControlFeatures = string.Join(",", selectedFeatures);
 

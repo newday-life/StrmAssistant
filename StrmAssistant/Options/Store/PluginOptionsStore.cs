@@ -11,6 +11,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using static StrmAssistant.Common.CommonUtility;
+using static StrmAssistant.Options.GeneralOptions;
 using static StrmAssistant.Options.Utility;
 
 namespace StrmAssistant.Options.Store
@@ -43,7 +44,17 @@ namespace StrmAssistant.Options.Store
             if (e.Options is PluginOptions options)
             {
                 if (string.IsNullOrEmpty(options.GeneralOptions.CatchupTaskScope))
-                    options.GeneralOptions.CatchupTaskScope = GeneralOptions.CatchupTask.MediaInfo.ToString();
+                {
+                    options.GeneralOptions.CatchupTaskScope = CatchupTask.MediaInfo.ToString();
+                }
+                else if (!Plugin.Instance.IntroSkipStore.GetOptions().UnlockIntroSkip)
+                {
+                    var taskScope = options.GeneralOptions.CatchupTaskScope;
+                    var selectedTasks = taskScope.Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries)
+                        .Where(f => f != CatchupTask.Fingerprint.ToString())
+                        .ToList();
+                    options.GeneralOptions.CatchupTaskScope = string.Join(",", selectedTasks);
+                }
 
                 var isSimpleTokenizer = string.Equals(EnhanceChineseSearch.CurrentTokenizerName, "simple",
                     StringComparison.Ordinal);
