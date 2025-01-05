@@ -1,5 +1,6 @@
 using Emby.Media.Common.Extensions;
 using MediaBrowser.Controller.Entities;
+using MediaBrowser.Controller.Entities.Audio;
 using MediaBrowser.Controller.Entities.Movies;
 using MediaBrowser.Controller.Entities.TV;
 using MediaBrowser.Controller.Library;
@@ -271,7 +272,7 @@ namespace StrmAssistant.Common
             {
                 if (includeFavorites) resultItems = ExpandFavorites(items, true, true);
 
-                var incomingItems = items.OfType<Video>().Cast<BaseItem>().ToList();
+                var incomingItems = items.Where(item => item is Video || item is Audio).ToList();
 
                 if (libraryIds == null || !libraryIds.Any())
                 {
