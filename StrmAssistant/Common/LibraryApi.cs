@@ -230,6 +230,8 @@ namespace StrmAssistant.Common
         {
             if (!item.RunTimeTicks.HasValue) return false;
 
+            if (item.Size == 0) return false;
+
             var mediaStreamCount = item.GetMediaStreams()
                 .FindAll(i => i.Type == MediaStreamType.Video || i.Type == MediaStreamType.Audio).Count;
 
