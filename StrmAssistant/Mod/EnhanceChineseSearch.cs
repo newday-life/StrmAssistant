@@ -175,6 +175,7 @@ namespace StrmAssistant.Mod
                         }
                         if (rebuildFtsResult)
                         {
+                            CurrentTokenizerName = "unicode61 remove_diacritics 2";
                             Plugin.Instance.Logger.Info("EnhanceChineseSearch - Restore Success");
                         }
                         ResetOptions();
@@ -192,6 +193,7 @@ namespace StrmAssistant.Mod
 
                             if (rebuildFtsResult)
                             {
+                                CurrentTokenizerName = "simple";
                                 Plugin.Instance.Logger.Info("EnhanceChineseSearch - Load Success");
                             }
                         }
