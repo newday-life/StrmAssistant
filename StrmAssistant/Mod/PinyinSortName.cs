@@ -132,7 +132,7 @@ namespace StrmAssistant.Mod
             {
                 var result = new string(__result);
 
-                if (IsJapanese(result) || !IsChinese(result)) return;
+                
 
                 var nameToProcess = __instance is BoxSet ? RemoveDefaultCollectionName(result) : result;
 
