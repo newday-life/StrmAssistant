@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
-using TinyPinyin;
+using WordsHelper = ToolGood.Words.FirstPinyin.WordsHelper;
 
 namespace StrmAssistant.Common
 {
@@ -60,7 +60,7 @@ namespace StrmAssistant.Common
 
         public static string ConvertToPinyinInitials(string input)
         {
-            return PinyinHelper.GetPinyinInitials(input);
+            return WordsHelper.GetFirstPinyin(input);
         }
 
         public static string RemoveDefaultCollectionName(string input)
